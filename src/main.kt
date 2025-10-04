@@ -1,4 +1,7 @@
 fun main() {
+    // функции высшего порядке (шаг 12)
+    // замыкания (шаг 13)
+
     greetPlayer()
     showChatMessage("Здравствуй")
     showPlayerStats("Aragorn", 150)
