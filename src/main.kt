@@ -1,5 +1,5 @@
 fun main() {
-    // функции высшего порядке (шаг 12)
+    // функции высшего порядка (шаг 12)
     // замыкания (шаг 13)
 
     greetPlayer()
@@ -28,6 +28,14 @@ fun main() {
     println(doubled)
 
     applyEffect { it + 40 }
+    
+    onEvent("Дождь") {
+        println("Игрок получает эффект 'Мокрый'")
+    }
+
+    val kills = createCounter()
+    println(kills())
+    println(kills())
 }
 
 fun applyEffect(effect: (Int) -> Int) {
@@ -67,3 +75,13 @@ fun sum(a: Int, b: Double): Double = a + b
 fun sum(a: Double, b: Int): Double = a + b
 
 val greet = fun(name: String) { println(name) }
+
+fun onEvent(eventType: String, action: (String) -> Unit) {
+    println("Событие: $eventType")
+    action(eventType)
+}
+
+fun createCounter(): () -> Int {
+    var count = 0
+    return {++count}
+}
